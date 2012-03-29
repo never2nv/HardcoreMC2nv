@@ -10,7 +10,7 @@
 /*     */ import java.util.Date;
 /*     */ import java.util.Enumeration;
 /*     */ import java.util.Hashtable;
-/*     */ import java.util.Properties;
+import java.util.Properties;
 /*     */ 
 /*     */ public class ConfigFile extends Properties
 /*     */ {
@@ -20,7 +20,7 @@
 /*     */   private FileOutputStream out;
 /*     */   private FileInputStream in;
 /*  22 */   private File config = new File(mainDirectory + File.separator + "HCMC.properties");
-/*  23 */   private Hashtable<String, String> defaults = new Hashtable();
+/*  23 */   private Hashtable<String, String> defaults = new Hashtable<String, String>();
 /*     */ 
 /*     */   public ConfigFile()
 /*     */   {
@@ -54,7 +54,7 @@
 /*  54 */       getConfigurationSet().load(this.in);
 /*  55 */       this.out = new FileOutputStream(this.config);
 /*     */ 
-/*  58 */       Enumeration en = this.defaults.keys();
+/*  58 */       Enumeration<String> en = this.defaults.keys();
 /*  59 */       while (en.hasMoreElements())
 /*     */       {
 /*  61 */         String key = ((String)en.nextElement()).toString();

@@ -15,6 +15,7 @@
 /*     */ 
 /*     */ public class DeadPlayerList
 /*     */ {
+private static final int i = 0;
 /*  18 */   private ArrayList<DeadPlayer> _deadPlayers = new ArrayList();
 /*  19 */   private HardcorePlugin _plugin = null;
 /*     */ 

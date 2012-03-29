@@ -51,25 +51,25 @@
 /*     */ 
 /*  56 */         if (this._plugin.getDeadPlayerList().isPlayerDead(playerName, false))
 /*     */         {
-/*  60 */           sender.sendMessage(playerName + " is already on the dead list. Nothing to do.");
+/*  60 */           player.sendMessage(playerName + " is already on the dead list. Nothing to do.");
 /*  61 */           return false;
 /*     */         }
 /*     */ 
 /*  67 */         Player victim = this._plugin.getServer().getPlayerExact(playerName);
 /*  68 */         if (victim == null) {
-/*  69 */           sender.sendMessage(playerName + " was not found, they must be online to slay.");
+/*  69 */           player.sendMessage(playerName + " was not found, they must be online to slay.");
 /*  70 */           return false;
 /*     */         }
 /*  72 */         victim.damage(10000);
-/*  73 */         sender.sendMessage(playerName + " slain. When the reaper comes, they will be kicked.");
+/*  73 */         player.chat(playerName + " slain. When the reaper comes, they will be kicked.");
 /*  74 */         return true;
 /*     */       }
 /*     */ 
-/*  81 */       sender.sendMessage("You must supply a playername.");
+/*  81 */       player.sendMessage("You must supply a playername.");
 /*  82 */       return false;
 /*     */     }
 /*     */ 
-/*  89 */     sender.sendMessage("You don't have permission to run this command.");
+/*  89 */     player.sendMessage("You don't have permission to run this command.");
 /*  90 */     return true;
 /*     */   }
 /*     */ 
@@ -84,7 +84,7 @@
 /* 105 */         if (this._plugin.getDeadPlayerList().isPlayerDead(playerName, false))
 /*     */         {
 /* 108 */           this._plugin.getDeadPlayerList().removePlayer(playerName);
-/* 109 */           sender.sendMessage(playerName + " was removed from the dead list. They should be able to log on again.");
+/* 109 */           player.chat(playerName + " was removed from the dead list. They should be able to log on again.");
 /* 110 */           return true;
 /*     */         }
 /*     */ 
@@ -110,24 +110,24 @@
 /*     */ 
 /* 147 */         if (this._plugin.getDeadPlayerList().isPlayerDead(playerName, false))
 /*     */         {
-/* 149 */           sender.sendMessage(playerName + " is dead and will be allowed back on " + this._plugin.getDeadPlayerList().whenWillPlayerLive(playerName));
+/* 149 */           player.sendMessage(playerName + " is dead and will be allowed back on " + this._plugin.getDeadPlayerList().whenWillPlayerLive(playerName));
 /*     */         }
 /*     */         else
 /*     */         {
-/* 153 */           sender.sendMessage(playerName + " is not on the dead list.");
+/* 153 */           player.sendMessage(playerName + " is not on the dead list.");
 /*     */         }
 /*     */ 
 /*     */       }
 /*     */       else
 /*     */       {
-/* 159 */         sender.sendMessage("You must supply a playername.");
+/* 159 */         player.sendMessage("You must supply a playername.");
 /* 160 */         return false;
 /*     */       }
 /*     */ 
 /*     */     }
 /*     */     else
 /*     */     {
-/* 167 */       sender.sendMessage("You don't have permission to run this command.");
+/* 167 */       player.sendMessage("You don't have permission to run this command.");
 /* 168 */       return true;
 /*     */     }
 /*     */ 

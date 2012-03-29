@@ -19,10 +19,9 @@
 /* 19 */     File logFile = getDeadlogFile();
 /*    */     try
 /*    */     {
-/*    */       FileWriter fw;
+/*    */       FileWriter fw = new FileWriter(logFile, false);;
 /* 25 */       if (!logFile.exists())
 /*    */       {
-/* 27 */         FileWriter fw = new FileWriter(logFile, false);
 /* 28 */         writeHeader(fw);
 /*    */       }
 /*    */       else {

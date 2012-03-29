@@ -1,6 +1,7 @@
 /*    */ package com.Evilgeniuses.Hardcore;
 /*    */ 
-/*    */ import org.bukkit.ChatColor;
+/*    */ import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 /*    */ import org.bukkit.Location;
 /*    */ import org.bukkit.World;
 /*    */ import org.bukkit.entity.Player;
@@ -8,7 +9,7 @@
 /*    */ import org.bukkit.event.EventPriority;
 /*    */ import org.bukkit.event.Listener;
 /*    */ import org.bukkit.event.entity.EntityDeathEvent;
-/*    */ import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 /*    */ 
 /*    */ public class DeathEventListener
 /*    */   implements Listener
@@ -21,7 +22,7 @@
 /*    */ 
 /*    */   @EventHandler(priority=EventPriority.NORMAL)
 /*    */   public void onEntityDeath(EntityDeathEvent event) {
-/* 24 */     if (!(event instanceof PlayerDeathEvent)) {
+/* 24 */     if (!(event instanceof PlayerDeathEvent )) {
 /* 25 */       return;
 /*    */     }
 /* 27 */     Player player = (Player)event.getEntity();
@@ -36,6 +37,7 @@
 /*    */ 
 /* 38 */       if (this._plugin._config.getBoolean("finalFarewell")) {
 /* 39 */         doFinalFarewellMessage(player);
+				player.chat("I have died, will you big me a final farewell?");
 /*    */       }
 /*    */     }
 /*    */ 
@@ -45,8 +47,11 @@
 /*    */ 
 /*    */   private void doFinalFarewellMessage(Player player)
 /*    */   {
-/* 49 */     player.sendMessage(ChatColor.RED + "You have died. You have been granted " + this._plugin._config.getInt("finalFarewell_inSeconds") + " seconds to say your final farewell.");
-/*    */   }
+			player.sendMessage(ChatColor.RED + "You have died. You have been granted " + this._plugin._config.getInt("finalFarewell_inSeconds") + " seconds to say your final farewell.");
+			player.chat(ChatColor.GREEN + "/me I have died!" + ChatColor.RED + "AVENGE ME!");
+			
+}
+		
 /*    */ 
 /*    */   public void doSoundAndFury(Location where, World whatWorld)
 /*    */   {
@@ -55,8 +60,3 @@
 /* 56 */     whatWorld.setThundering(true);
 /*    */   }
 /*    */ }
-
-/* Location:           /Users/paul/Desktop/Minecraft/plugins/HardcoreMC_2.6.2.jar
- * Qualified Name:     com.Evilgeniuses.Hardcore.DeathEventListener
- * JD-Core Version:    0.6.0
- */
